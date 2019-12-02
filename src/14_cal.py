@@ -22,3 +22,16 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+args = sys.argv
+
+if (len(args) < 2):
+    c = calendar.TextCalendar(calendar.SUNDAY)
+    print(c.formatmonth(datetime.now().year, datetime.now().month))
+elif (len(args) == 2):
+    c = calendar.TextCalendar(calendar.SUNDAY)
+    print(c.formatmonth(datetime.now().year, int(args[1])))
+elif (len(args) == 3):
+    c = calendar.TextCalendar(calendar.SUNDAY)
+    print(c.formatmonth(int(args[2]), int(args[1])))
+else:
+    print("Expected: month/year")
